@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Login{% endblock head_title %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-3 text-center">
+            <h5 class="mt-4 mb-4">Login:</h5>
+            <div class="container">
+                <form method="POST" novalidate>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" class="btn my-2" style="background-color: #90EE90;" value="Login" >
+                </form>
+                <br>
+                <p><a href="{% url 'password_reset' %}">Password dimenticata?</a></p>
+            </div>
+        </div>  
+    </div>
+{% endblock content %}
