@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Product - Registration{% endblock head_title %}
+{% block content %}
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Lot - Detail{% endblock head_title %}
+{% block content %}
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Lot Code:</h4> <p>{{ object.lot_code }}</p>
+                </div>
+                <div class="card-body">
+                    Registered By: <p class="mt-2 mb-0"><strong>{{ object.created_by }}</strong></p>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>    
+        <div class="col-8">
+            <div class="card my-2">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <p class="text-center mb-1"><strong>Tracking Code:</strong></p><p class="text-center">{{ object.tracking_code }}</p><hr>
+                    <p class="text-center mb-1"><strong>Product:</strong></p><p class="text-center">{{ object.product }}</p><hr>
+                    <p class="text-center mb-1"><strong>Production Quantity:</strong></p><p class="text-center">{{ object.production_quantity }}</p><hr>
+                    <p class="text-center mb-1"><strong>Date&Time Arrival:</strong></p><p class="text-center">{{ object.date_time_arrival }}</p><hr>
+                    <p class="text-center mb-1"><strong>Date&Time Production:</strong></p><p class="text-center">{{ object.date_time_production }}</p><hr>
+                    <p class="text-center mb-1"><strong>Manufacturing Plant:</strong></p><p class="text-center">{{ object.manufacturing_plant}}</p><hr>
+                    <p class="text-center mb-1"><strong>Recipient:</strong></p><p class="text-center">{{ object.recipient }}</p><hr>
+                    <p class="text-center mb-1"><strong>Hash:</strong></p><p class="text-center">{{ object.hash }}</p><hr>
+                    <p class="text-center mb-1"><strong>Transaction ID:</strong></p><p class="text-center">{{ object.tx_id }}</p><hr>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock content %}
+{% endblock content %}

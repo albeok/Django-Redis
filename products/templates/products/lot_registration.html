@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Lot - Registration{% endblock head_title %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-3 text-center">
+        <p class="text-center mt-3 mb-5"><strong>Hi {{ request.user.username }}, register a new lot down below:</strong></p>
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn my-2" style="background-color: #90EE90;" value="Register">
+        </form>
+    </div>
+</div>
+{% endblock content %}

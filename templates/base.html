@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,22 +13,28 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #90EE90;">
       <div class="container">
-          <a class="navbar-brand" href="#">Vegan Style</a>
+          <a class="navbar-brand" href="/">Vegan Style</a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">Track your Product</a>
+                <a class="nav-link" href="#">Track Lot</a>
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
               {% if request.user.is_authenticated %}
+              <form class="d-flex mx-2" method="POST" action="{% url 'search_tracking_code' %}">
+                {% csrf_token %}
+                <input name="searched" class="form-control me-2" type="search" placeholder="Search for Tracking code" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   {{ request.user.username }}
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                 
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+                  <li><a class="dropdown-item" href="">Lot List</a></li> 
+                  <li><a class="dropdown-item" href="{% url 'lot_registration' %}">Register a new product</a></li>               
                   <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                 </ul>
               </li>
