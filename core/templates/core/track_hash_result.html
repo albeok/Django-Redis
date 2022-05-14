@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Track Lot - Result{% endblock head_title %}
+{% block content %}
+<div class="container">
+    <div class="row mt-3 mx-5"> 
+        <div class="col-12">
+            <div class="card my-2">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    {% if q %}
+                        {% for hash in hashes %}
+                            <h6 class="text-center my-4"><strong>Transaction ID:</strong></h6>
+                            <p class="text-center my-4">{{ hash.tx_id }}</p>
+                            <p class="text-center my-4"><small> Look for it in the <a href="https://ropsten.etherscan.io/">Ropsten Ethereum Blockchain</a></small></p><hr>
+                            <h6 class="text-center my-4"><strong>Generic Info:</strong></h6>
+                            <li class="text-center my-4">{{ hash.lot_code }}</li>
+                            <li class="text-center my-4">{{ hash.tracking_code }}</li>
+                            <li class="text-center my-4">{{ hash.product }}</li>
+                            <li class="text-center my-4">{{ hash.production_quantity }}</li>
+                            <li class="text-center my-4">{{ hash.date_time_arrival }}</li>
+                            <li class="text-center my-4">{{ hash.date_time_production }}</li>
+                            <li class="text-center my-4">{{ hash.manufacturing_plant }}</li>
+                            <li class="text-center my-4">{{ hash.recipient }}</li>
+                            <li class="text-center mt-4">{{ hash.created_by }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-center mt-4">---</p>
+                    {% endif %}  
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>        
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Track Lot - Page{% endblock head_title %}
+{% block content %}
+{% csrf_token %}
+<div class="row justify-content-center">
+    <div class="col-6 text-center">
+        <div class="card my-5">
+            <div class="card-header"></div>
+            <div class="container mb-5">
+                <h5 class="my-5">Track Lot in the Blockchain</h5>
+                <form class="d-flex mx-2" method="POST" action="{% url 'track_hash_result' %}">
+                    {% csrf_token %}
+                    <input name="q" class="form-control me-2" type="q" placeholder=" Lot Hash" aria-label="q">
+                    <input type="submit" class="btn mx-2" style="background-color: #90EE90;" value="Track Lot" >
+                </form>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+        
+    </div>  
+</div>
+{% endblock content %}
+
+            <!-- <form name="q" action="{% url 'track_lot_result' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" class="btn my-2" style="background-color: #90EE90;" value="Track Lot" >
+            </form> -->

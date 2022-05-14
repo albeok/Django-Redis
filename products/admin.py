@@ -3,4 +3,3 @@ from .models import Lot
 
 admin.site.register(Lot)
 
-# Register your models here.

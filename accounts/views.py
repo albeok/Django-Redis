@@ -1,4 +1,3 @@
-from django import forms
 from django.shortcuts import render
 from .forms import RegistrationForm
 from django.shortcuts import HttpResponseRedirect

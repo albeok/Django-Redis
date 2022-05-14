@@ -4,4 +4,4 @@ w3 = Web3(Web3.HTTPProvider("https://ropsten.infura.io/v3/14d63739bfa14c85b13dd1
 account = w3.eth.account.create()
 private_key = account.privateKey.hex()
 address = account.address
-print(f"indirizzo:{address}\nchiave privata: {private_key}")
+print(f"address wallet:{address}\nkey wallet: {private_key}")

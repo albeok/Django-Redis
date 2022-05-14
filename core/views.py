@@ -1,6 +1,7 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from products.models import Lot
-from django.views.generic import View, DetailView
+from .forms import HashLotModelForm
+from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 def homepage(request):
@@ -18,13 +19,15 @@ class LotDetailView(LoginRequiredMixin, DetailView):
     template_name = "core/lot_detail.html"
     model = Lot
 
-class TrackProductView(View):
-    pass
+def track_hash_page(request):
+    form = HashLotModelForm
+    context = {"form":form}
+    return render(request, "core/track_hash_page.html", context)
 
-def track_lot(request):
+def track_hash_result(request):
     if request.method == "POST":
         q =request.POST['q']
-        lots = Lot.objects.filter(hash__contains=q)
-        return render(request, 'core/track_lot.html', {"searched": q, "lots": lots})
+        hashes = Lot.objects.filter(hash__contains=q)
+        return render(request, 'core/track_hash_result.html', {"q": q, "hashes": hashes})
     else:
-        return render(request, 'core/search_tracking_code.html')
+        return render(request, 'core/track_hash_result.html')

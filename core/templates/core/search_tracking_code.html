@@ -7,12 +7,12 @@
     <div class="col-3 text-center">
         {% csrf_token %}
         {% if searched %}
-            <p class="text-center my-4">You Searched For {{ searched }}</p>
+            <p class="text-center my-4">You Searched For... "{{ searched }}"</p>
             {% for lot in lots %}
-                <a href="{{ lot.get_absolute_url }}">{{ lot }}</a><br><hr>
+                <a href="{{ lot.get_absolute_url }}">{{ lot.tracking_code }}</a><br><hr>
             {% endfor %}
         {% else %}
-            <p class="text-center mt-4">You Forgot To Look For A Tracking Code</p>
+            <p class="text-center mt-4">---</p>
         {% endif %}  
     </div>
 </div>

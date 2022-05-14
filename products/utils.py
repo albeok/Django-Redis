@@ -1,17 +1,18 @@
 from web3 import Web3
-import os
 
 def generic_info_dict(Lot):
     generic_info_dict = {
-        "lot_code" : Lot.lot_code,
         "tracking_code" : Lot.tracking_code,
+        "product": Lot.product,
         "production_quantity" : str(Lot.production_quantity),
         "date_time_arrival" : str(Lot.date_time_arrival),
         "date_time_production" : str(Lot.date_time_production),
         "manufacturing_plant" : Lot.manufacturing_plant,
+        "created_by": Lot.created_by,
         "recipient" : Lot.recipient
         }
     return generic_info_dict
+
 
 def send_transaction(message):
     # Create a new Ethereum transaction and send it on chain

@@ -2,9 +2,25 @@
 {% load crispy_forms_tags %}
 {% block head_title %}{{ block.super }} - Homepage{% endblock head_title %}
 {% block content %}
-    <div class="row justify-content-center mt-4">
-        <div class="col-3 text-center">
-            <h1>HomePage!</h1>
-        </div>
+    <div class="container text-center mt-5">
+        <h1>WELCOME!</h1>
+        <p class="mt-4">this is where food sustainability and blockchain interact for a better future</p>
     </div>
+    <div class="card-group mt-5">
+        <div class="card">
+          <img class="card-img-top" src="https://www.my-personaltrainer.it/2020/09/07/dieta-vegana-orig.jpeg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title text-center">SUSTAINABILITY</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="https://mpng.subpng.com/20180629/zah/kisspng-blockchain-business-bitcoin-technology-supply-chai-time-consuming-5b36918caeef03.6380893815303028607165.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title text-center">BLOCKCHAIN</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    
 {% endblock content %}

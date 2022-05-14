@@ -25,7 +25,7 @@ SECRET_KEY = str(os.getenv('secret_key'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '.herokuapp.com']
 
 
 # Application definition
@@ -127,7 +127,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #in the reset password section, the message sent to the hypothetical emails is displayed in the console for the design phase
 
 
 # Static files (CSS, JavaScript, Images)
