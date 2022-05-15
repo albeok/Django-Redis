@@ -50,8 +50,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ request.user.username }}
                   </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
-                    <li><a class="dropdown-item" href="{% url 'user_profile' pk=request.user.id %}">Profile</a></li>              
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">              
                     <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                     <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                   </ul>
