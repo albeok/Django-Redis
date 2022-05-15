@@ -129,6 +129,14 @@ USE_TZ = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #in the reset password section, the message sent to the hypothetical emails is displayed in the console for the design phase
 
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'VOSTRO ACCOUNT'
+# EMAIL_HOST_PASSWORD = 'VOSTRA PASSWORD'
+# DEFAULT_FROM_EMAIL = 'my gmail account'
+# DEFAULT_TO_EMAIL = 'to email'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

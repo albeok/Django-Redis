@@ -6,6 +6,10 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
+from django.http import HttpResponse
+import redis
+
+client = redis.StrictRedis(host='127.0.0.1', port='6379', password="", db=0)
 
 def homepage(request):
     return render(request, "core/homepage.html")
@@ -45,3 +49,13 @@ def track_hash_result(request):
         return render(request, 'core/track_hash_result.html', {"q": q, "hashes": hashes})
     else:
         return render(request, 'core/track_hash_result.html')
+
+def check_last_ip(request):
+    username = request.user.username
+    last_ip = client.get(username)
+    current_ip = request.META['REMOTE_ADDR']
+    if last_ip is None:
+        client.set(username, current_ip)
+    elif current_ip != last_ip:
+        client.set(username, current_ip)
+        return HttpResponse("current ip address is different from the previous one")
