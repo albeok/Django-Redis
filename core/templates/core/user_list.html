@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Users - List{% endblock head_title %}
+{% block content %}
+
+<div class="container mt-5">
+  {% for user in users %}
+    {% if forloop.first %}<div class="row">{% endif %}
+      <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-header"></div>
+        <div class="card-body text-success">
+          <p class="card-text text-center"><a href="{% url 'user_profile' pk=user.pk %}" class="link-success"><strong class="text-center">{{ user.username }}</strong></a></p>
+        </div>
+        <div class="card-footer"></div>
+        </div>
+      </dir>
+      <br>
+    {% if forloop.counter|divisibleby:"4" or forloop.last %}</div>{% endif %}
+    {% if forloop.counter|divisibleby:"4" and not forloop.last %}<div class="row">{% endif %}
+  {% endfor %}
+</div>  
+
+{% endblock content %}
+

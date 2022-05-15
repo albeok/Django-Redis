@@ -1,11 +1,25 @@
 from django.shortcuts import render
 from products.models import Lot
+from django.contrib.auth.models import User
 from .forms import HashLotModelForm
-from django.views.generic import DetailView
+from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.decorators import method_decorator
 
 def homepage(request):
     return render(request, "core/homepage.html")
+
+class UserDetailView(DetailView):
+    model = User
+    context_object_name = 'user'
+    template_name = 'core/user_profile.html'
+
+@method_decorator(staff_member_required, name='dispatch')
+class UserList(ListView):
+    model = User
+    context_object_name = 'users'
+    template_name = 'core/user_list.html'
 
 def search_tracking_code(request):
     if request.method == "POST":

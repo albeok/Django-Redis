@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{ block.super }} - {{ user }}{% endblock head_title %}
+{% block content %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-3 text-center">
+            <div class="card my-2">
+                <div class="card-header">
+                    <h4 class="text-center text-success">{{ user }}</h4>
+                </div>
+                <div class="card-body">
+                    <p>Lot/s Registered:    {{ user.lot_set.count }} </p>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-12">
+            {% for lot in user.lot_set.all %}
+              <div class="col-12 mt-3">
+                <div class="card mb-4">
+                  <div class="card-header py-1">
+                      <p>Date and Time Production of the Lot:</p>
+                      <p class="mb-0 text-muted">{{ lot.date_time_production|date:'d M Y - H:m:s' }}</p>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="text-success">Hash:</h5>{{ lot.hash }}<hr>
+                    <h5 class="text-success">Tx_Id:</h5>{{ lot.tx_id }}
+                  </div>
+                  <div class="card-footer"></div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+    
+{% endblock content %}

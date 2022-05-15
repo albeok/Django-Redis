@@ -26,6 +26,7 @@ class Lot(models.Model):
     class Meta:
         verbose_name = "Lot"
         verbose_name_plural = "Lot"
+        ordering = ['-date_time_production']
 
     def get_absolute_url(self):
         return reverse("lot_detail", kwargs={'pk':self.pk})

@@ -22,7 +22,7 @@
               </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-              {% if request.user.is_authenticated %}
+              {% if request.user.is_staff %}
               <form class="d-flex mx-2" method="POST" action="{% url 'search_tracking_code' %}">
                 {% csrf_token %}
                 <input name="searched" class="form-control me-2" type="search" placeholder="Search for Tracking code" aria-label="Search">
@@ -33,15 +33,36 @@
                   {{ request.user.username }}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
-                  <li><a class="dropdown-item" href="{% url 'lot_registration' %}">Register a new product</a></li>               
+                  <li><a class="dropdown-item" href="{% url 'lot_registration' %}">Register a new product</a></li>
+                  <li><a class="dropdown-item" href="{% url 'user_profile' pk=request.user.id %}">Profile</a></li>  
+                  <li><a class="dropdown-item" href="{% url 'user_list' %}">User List</a></li>               
                   <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                 </ul>
               </li>
+              {% elif not request.user.is_staff and request.user.is_authenticated %}
+                <form class="d-flex mx-2" method="POST" action="{% url 'search_tracking_code' %}">
+                  {% csrf_token %}
+                  <input name="searched" class="form-control me-2" type="search" placeholder="Search for Tracking code" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ request.user.username }}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+                    <li><a class="dropdown-item" href="{% url 'user_profile' pk=request.user.id %}">Profile</a></li>              
+                    <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+                </li>
               {% endif %}
               {% if not request.user.is_authenticated %}
+              <li class="nav-item mx-1">
+                <a class="nav-link" href="{% url 'registration' %}">Sign Up</a>
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Are you an administrator? Log in</a>
+                <a class="nav-link" href="{% url 'login' %}">Are you our costumer? Log in!</a>
               </li>
               {% endif %}
             </ul>
