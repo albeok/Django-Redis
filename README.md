@@ -8,5 +8,5 @@ The project involves the development of a data board with DJango and Redis for a
 * Web3 5.29.0
 * Redis 3.5.3
 ## Contact Me
-* [e-mail](alberto_toscano97@yahoo.it)
+* e-mail: alberto_toscano97@yahoo.it
 * [Linkedin](https://www.linkedin.com/in/alberto-t-876425203/)
