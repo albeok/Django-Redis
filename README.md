@@ -1,7 +1,7 @@
 # Django-Web3-Redis
 The project involves the development of a data board with DJango and Redis for a synthetic meat startup.
 * Presentation of the project [here:](https://www.canva.com/design/DAFAuEZ7hUc/DbpokF-iXIMOU9MYeO30rA/view?utm_content=DAFAuEZ7hUc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
-* Check out my blog in the cloud until February 23 2023 on [PythonAnywhere]:(https://albertot.pythonanywhere.com/)
+* Check out my blog in the cloud until February 23 2023 on [PythonAnywhere](https://albertot.pythonanywhere.com/)
 ## Technologies
 * Virtualenv
 * Python 3.10.4
